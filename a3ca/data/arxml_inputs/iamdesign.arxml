@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="4f4251aa-9270-4402-9a27-66bfc3a62a7a">
+      <SHORT-NAME>myproject</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>IAMApp01</SHORT-NAME>
+          <ELEMENTS>
+            <COM-EVENT-GRANT-DESIGN UUID="c6f0c8d0-ac93-489f-bf8f-b676b818cefe">
+              <SHORT-NAME>IAMApp01_Service01_Event01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</PROCESS-DESIGN-REF>
+              <EVENT-IREF>
+                <TARGET-EVENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/myproject/test/IAMService01/Event01</TARGET-EVENT-REF>
+              </EVENT-IREF>
+            </COM-EVENT-GRANT-DESIGN>
+            <COM-FIELD-GRANT-DESIGN UUID="831d06b8-19d7-4aaa-941c-f2ef9d52a8d6">
+              <SHORT-NAME>IAMApp01_Service01_Field01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</PROCESS-DESIGN-REF>
+              <FIELD-IREF>
+                <TARGET-FIELD-REF DEST="FIELD">/myproject/test/IAMService01/Field01</TARGET-FIELD-REF>
+              </FIELD-IREF>
+              <ROLE>GETTER-SETTER</ROLE>
+            </COM-FIELD-GRANT-DESIGN>
+          </ELEMENTS>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>Service01_Ins01</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Event</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-EVENT-GRANT UUID="31ffe3c2-15bc-4229-b867-27c17c868371">
+                      <SHORT-NAME>IAMApp01_Service01_Ins01_Event01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-EVENT-GRANT-DESIGN">/myproject/IAMApp01/IAMApp01_Service01_Event01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Event01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins1_Provided_Instance</SERVICE-INSTANCE-REF>
+                    </COM-EVENT-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Field</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-FIELD-GRANT UUID="5845ec0e-598a-455d-80ce-fdc595703324">
+                      <SHORT-NAME>IAMApp01_Service01_Ins01_Field01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-FIELD-GRANT-DESIGN">/myproject/IAMApp01/IAMApp01_Service01_Field01_GrantDesign</DESIGN-REF>
+                      <ROLE>GETTER-SETTER</ROLE>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-FIELD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Field01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins1_Provided_Instance</SERVICE-INSTANCE-REF>
+                    </COM-FIELD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Method</SHORT-NAME>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+            <AR-PACKAGE>
+              <SHORT-NAME>Service01_Ins02</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Event</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-EVENT-GRANT UUID="57a1d89d-df29-4585-bb00-8af56da97b82">
+                      <SHORT-NAME>IAMApp01_Service01_Ins02_Event01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-EVENT-GRANT-DESIGN">/myproject/IAMApp01/IAMApp01_Service01_Event01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Event01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins2_Provided_Instance</SERVICE-INSTANCE-REF>
+                    </COM-EVENT-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Field</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-FIELD-GRANT UUID="6e6fe4e8-8e5c-45d5-bcae-24ad637747db">
+                      <SHORT-NAME>IAMApp01_Service01_Ins02_Field01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-FIELD-GRANT-DESIGN">/myproject/IAMApp01/IAMApp01_Service01_Field01_GrantDesign</DESIGN-REF>
+                      <ROLE>GETTER-SETTER</ROLE>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-FIELD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Field01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins2_Provided_Instance</SERVICE-INSTANCE-REF>
+                    </COM-FIELD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Method</SHORT-NAME>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>IAMApp02</SHORT-NAME>
+          <ELEMENTS>
+            <COM-EVENT-GRANT-DESIGN UUID="f610a6ac-b090-4dfc-b779-f2c0b45a135f">
+              <SHORT-NAME>IAMApp02_Service01_Event01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp02_processDesign</PROCESS-DESIGN-REF>
+              <EVENT-IREF>
+                <TARGET-EVENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/myproject/test/IAMService01/Event01</TARGET-EVENT-REF>
+              </EVENT-IREF>
+            </COM-EVENT-GRANT-DESIGN>
+            <COM-FIELD-GRANT-DESIGN UUID="0f57ead8-6550-45a4-ac3a-82c1cc45f16d">
+              <SHORT-NAME>IAMApp02_Service01_Field01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp02_processDesign</PROCESS-DESIGN-REF>
+              <FIELD-IREF>
+                <TARGET-FIELD-REF DEST="FIELD">/myproject/test/IAMService01/Field01</TARGET-FIELD-REF>
+              </FIELD-IREF>
+              <ROLE>GETTER-SETTER</ROLE>
+            </COM-FIELD-GRANT-DESIGN>
+            <COM-METHOD-GRANT-DESIGN UUID="e3e01889-6db6-43da-8bf5-9f4327540bfe">
+              <SHORT-NAME>IAMApp02_Service01_Method01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp02_processDesign</PROCESS-DESIGN-REF>
+              <METHOD-IREF>
+                <TARGET-METHOD-REF DEST="CLIENT-SERVER-OPERATION">/myproject/test/IAMService01/Method01</TARGET-METHOD-REF>
+              </METHOD-IREF>
+            </COM-METHOD-GRANT-DESIGN>
+          </ELEMENTS>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>Service01_Ins01</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Event</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-EVENT-GRANT UUID="3dd42291-b0ad-4e8f-8a20-f9d43b4f86c9">
+                      <SHORT-NAME>IAMApp02_Service01_Ins01_Event01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-EVENT-GRANT-DESIGN">/myproject/IAMApp02/IAMApp02_Service01_Event01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Event01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp02_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-EVENT-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Field</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-FIELD-GRANT UUID="9b834c3f-a3b4-4c00-8389-114681c0e184">
+                      <SHORT-NAME>IAMApp02_Service01_Ins01_Field01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-FIELD-GRANT-DESIGN">/myproject/IAMApp02/IAMApp02_Service01_Field01_GrantDesign</DESIGN-REF>
+                      <ROLE>GETTER-SETTER</ROLE>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-FIELD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Field01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp02_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-FIELD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Method</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-METHOD-GRANT UUID="7f5172cd-d9c5-412f-b2c1-4b6c7ee37e31">
+                      <SHORT-NAME>IAMApp02_Service01_Ins01_Method01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-METHOD-GRANT-DESIGN">/myproject/IAMApp02/IAMApp02_Service01_Method01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-METHOD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Method01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp02_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-METHOD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>IAMApp03</SHORT-NAME>
+          <ELEMENTS>
+            <COM-EVENT-GRANT-DESIGN UUID="30668d62-4c5f-410f-8346-100b40e826cb">
+              <SHORT-NAME>IAMApp03_Service01_Event01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp03_processDesign</PROCESS-DESIGN-REF>
+              <EVENT-IREF>
+                <TARGET-EVENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/myproject/test/IAMService01/Event01</TARGET-EVENT-REF>
+              </EVENT-IREF>
+            </COM-EVENT-GRANT-DESIGN>
+            <COM-FIELD-GRANT-DESIGN UUID="85758a6d-8248-4f52-9523-b43e5bbda3a4">
+              <SHORT-NAME>IAMApp03_Service01_Field01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp03_processDesign</PROCESS-DESIGN-REF>
+              <FIELD-IREF>
+                <TARGET-FIELD-REF DEST="FIELD">/myproject/test/IAMService01/Field01</TARGET-FIELD-REF>
+              </FIELD-IREF>
+              <ROLE>GETTER-SETTER</ROLE>
+            </COM-FIELD-GRANT-DESIGN>
+            <COM-METHOD-GRANT-DESIGN UUID="20151cdd-7bc0-4267-a5ae-434281c6a8e3">
+              <SHORT-NAME>IAMApp03_Service01_Method01_GrantDesign</SHORT-NAME>
+              <PROCESS-DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp03_processDesign</PROCESS-DESIGN-REF>
+              <METHOD-IREF>
+                <TARGET-METHOD-REF DEST="CLIENT-SERVER-OPERATION">/myproject/test/IAMService01/Method01</TARGET-METHOD-REF>
+              </METHOD-IREF>
+            </COM-METHOD-GRANT-DESIGN>
+          </ELEMENTS>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>Service01_Ins02</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Event</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-EVENT-GRANT UUID="3dd42291-b0ad-4e8f-8a20-f9d43b4f86c9">
+                      <SHORT-NAME>IAMApp03_Service01_Ins02_Event01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-EVENT-GRANT-DESIGN">/myproject/IAMApp03/IAMApp03_Service01_Event01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Event01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp03_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-EVENT-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Field</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-FIELD-GRANT UUID="9b834c3f-a3b4-4c00-8389-114681c0e184">
+                      <SHORT-NAME>IAMApp03_Service01_Ins02_Field01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-FIELD-GRANT-DESIGN">/myproject/IAMApp03/IAMApp03_Service01_Field01_GrantDesign</DESIGN-REF>
+                      <ROLE>GETTER-SETTER</ROLE>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-FIELD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Field01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp03_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-FIELD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE>
+                  <SHORT-NAME>Method</SHORT-NAME>
+                  <ELEMENTS>
+                    <COM-METHOD-GRANT UUID="7f5172cd-d9c5-412f-b2c1-4b6c7ee37e31">
+                      <SHORT-NAME>IAMApp03_Service01_Ins02_Method01_Grant</SHORT-NAME>
+                      <DESIGN-REF DEST="COM-METHOD-GRANT-DESIGN">/myproject/IAMApp03/IAMApp03_Service01_Method01_GrantDesign</DESIGN-REF>
+                      <SERVICE-DEPLOYMENT-REF DEST="SOMEIP-METHOD-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep/Someip_Method01Dep</SERVICE-DEPLOYMENT-REF>
+                      <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp03_IAMService01_Required_Instance</SERVICE-INSTANCE-REF>
+                    </COM-METHOD-GRANT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

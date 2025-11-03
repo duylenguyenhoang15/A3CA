@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="4f4251aa-9270-4402-9a27-66bfc3a62a7a">
+      <SHORT-NAME>myproject</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="2ee55bca-da1b-475c-b7e8-1c045a7bebd3">
+          <SHORT-NAME>Application</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="227a6347-37bf-4f15-bef0-b53b009c8615">
+              <SHORT-NAME>Executable</SHORT-NAME>
+              <ELEMENTS>
+                <EXECUTABLE>
+                  <SHORT-NAME>IAMApp01Exe</SHORT-NAME>
+                  <CATEGORY>APPLICATION_LEVEL</CATEGORY>
+                  <REPORTING-BEHAVIOR>REPORTS-EXECUTION-STATE</REPORTING-BEHAVIOR>
+                  <ROOT-SW-COMPONENT-PROTOTYPE>
+                    <SHORT-NAME>RootSwComponent</SHORT-NAME>
+                    <APPLICATION-TYPE-TREF DEST="ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE">/myproject/Application/SwComponent/IAMApp01</APPLICATION-TYPE-TREF>
+                  </ROOT-SW-COMPONENT-PROTOTYPE>
+                </EXECUTABLE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="72af7a95-11b7-408d-b2f7-f09ad8813a2a">
+              <SHORT-NAME>Process</SHORT-NAME>
+              <ELEMENTS>
+                <PROCESS>
+                  <SHORT-NAME>IAMApp01_process</SHORT-NAME>
+                  <DESIGN-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</DESIGN-REF>
+                  <EXECUTABLE-REF DEST="EXECUTABLE">/myproject/Application/Executable/IAMApp01Exe</EXECUTABLE-REF>
+                  <STATE-DEPENDENT-STARTUP-CONFIGS>
+                    <STATE-DEPENDENT-STARTUP-CONFIG>
+                      <FUNCTION-GROUP-STATE-IREFS>
+                        <FUNCTION-GROUP-STATE-IREF>
+                          <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/Machine/ECU1Machine/MachineState</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                          <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/Machine/ECU1Machine_MachineState_ModeDeclarationGroup/Driving</TARGET-MODE-DECLARATION-REF>
+                        </FUNCTION-GROUP-STATE-IREF>
+                      </FUNCTION-GROUP-STATE-IREFS>
+                      <STARTUP-CONFIG-REF DEST="STARTUP-CONFIG">/myproject/System/StartupConfigSet/IAMApp01_startup_set/startup_config</STARTUP-CONFIG-REF>
+                    </STATE-DEPENDENT-STARTUP-CONFIG>
+                  </STATE-DEPENDENT-STARTUP-CONFIGS>
+                </PROCESS>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="d281e45e-ffab-4f63-a027-87ec40d471a4">
+              <SHORT-NAME>ProcessDesign</SHORT-NAME>
+              <ELEMENTS>
+                <PROCESS-DESIGN UUID="6044da93-0592-4d11-a847-72a6cace5328">
+                  <SHORT-NAME>IAMApp01_processDesign</SHORT-NAME>
+                  <EXECUTABLE-REF DEST="EXECUTABLE">/myproject/Application/Executable/IAMApp01Exe</EXECUTABLE-REF>
+                </PROCESS-DESIGN>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="7489cbf5-7b06-4e20-8d3a-632391017c98">
+              <SHORT-NAME>SwComponent</SHORT-NAME>
+              <ELEMENTS>
+                <ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE>
+                  <SHORT-NAME>IAMApp01</SHORT-NAME>
+                  <PORTS>
+                    <P-PORT-PROTOTYPE UUID="f91e8d9b-045f-4984-8c68-f3e4788ea81f">
+                      <SHORT-NAME>IAMApp01_IAMService01_Ins1_PPort</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/myproject/test/IAMService01</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="caa22d46-9457-48b3-bf31-fae23d4eaac2">
+                      <SHORT-NAME>IAMApp01_IAMService01_Ins2_PPort</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/myproject/test/IAMApp01_Systest_Config</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="b7764844-c6c0-4934-ac14-97868aad3d40">
+                      <SHORT-NAME>IAMApp01_Systest_PPort</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/myproject/test/IAMApp01_Systest_Config</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    
+                    <R-PORT-PROTOTYPE UUID="A1B2C3D4-DEAD-BEEF-A1B2-C3D4E5F6A7B8">
+                      <SHORT-NAME>RPort_For_Missing_Service</SHORT-NAME>
+                      <REQUIRED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/myproject/test/INonExistentService</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    
+                  </PORTS>
+                </ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="7fd5678e-ada8-4921-aa04-8aab209f54cd">
+          <SHORT-NAME>Service</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="183b8e24-d876-4a5b-a385-3f5d022acbc9">
+              <SHORT-NAME>IAMService01</SHORT-NAME>
+              <ELEMENTS>
+                <SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING UUID="9d898e2d-7eaf-46b1-81e5-c2f29d97a012">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins1_ProvidedServiceInstance_toMachine</SHORT-NAME>
+                  <COMMUNICATION-CONNECTOR-REF DEST="ETHERNET-COMMUNICATION-CONNECTOR">/Machine/ECU1MachineDesign/ECU1CommunicationConnector</COMMUNICATION-CONNECTOR-REF>
+                  <SERVICE-INSTANCE-REFS>
+                    <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins1_Provided_Instance</SERVICE-INSTANCE-REF>
+                  </SERVICE-INSTANCE-REFS>
+                  <UDP-PORT>1</UDP-PORT>
+                </SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING>
+                <SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING UUID="bb1e2f4a-e7bf-42b5-bccd-3c3bfd83aef5">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins1_ProvidedServiceInstance_toPort</SHORT-NAME>
+                  <PORT-PROTOTYPE-IREF>
+                    <TARGET-PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/myproject/Application/SwComponent/IAMApp01/IAMApp01_IAMService01_Ins1_PPort</TARGET-PORT-PROTOTYPE-REF>
+                  </PORT-PROTOTYPE-IREF>
+                  <PROCESS-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</PROCESS-REF>
+                  <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins1_Provided_Instance</SERVICE-INSTANCE-REF>
+                </SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING>
+                <PROVIDED-SOMEIP-SERVICE-INSTANCE UUID="daa06f39-8e9f-44af-ab64-8e63631e02ad">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins1_Provided_Instance</SHORT-NAME>
+                  <SERVICE-INTERFACE-DEPLOYMENT-REF DEST="SOMEIP-SERVICE-INTERFACE-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep</SERVICE-INTERFACE-DEPLOYMENT-REF>
+                  <SERVICE-INSTANCE-ID>1</SERVICE-INSTANCE-ID>
+                </PROVIDED-SOMEIP-SERVICE-INSTANCE>
+                <SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING UUID="9d898e2d-7eaf-46b1-81e5-c2f29d97a012">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins2_ProvidedServiceInstance_toMachine</SHORT-NAME>
+                  <COMMUNICATION-CONNECTOR-REF DEST="ETHERNET-COMMUNICATION-CONNECTOR">/Machine/ECU1MachineDesign/ECU1CommunicationConnector</COMMUNICATION-CONNECTOR-REF>
+                  <SERVICE-INSTANCE-REFS>
+                    <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins2_Provided_Instance</SERVICE-INSTANCE-REF>
+                  </SERVICE-INSTANCE-REFS>
+                  <UDP-PORT>2</UDP-PORT>
+                </SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING>
+                
+                <SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING UUID="DEADBEEF-e7bf-42b5-bccd-3c3bfd83aef5">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins2_ProvidedServiceInstance_toPort_BROKEN</SHORT-NAME>
+                  <PORT-PROTOTYPE-IREF>
+                    <TARGET-PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/myproject/Application/SwComponent/IAMApp01/IDoNotExist_PPort</TARGET-PORT-PROTOTYPE-REF>
+                  </PORT-PROTOTYPE-IREF>
+                  <PROCESS-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</PROCESS-REF>
+                  <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/IAMService01/IAMApp01_IAMService01_Ins2_Provided_Instance</SERVICE-INSTANCE-REF>
+                </SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING>
+                
+                <PROVIDED-SOMEIP-SERVICE-INSTANCE UUID="daa06f39-8e9f-44af-ab64-8e63631e02ad">
+                  <SHORT-NAME>IAMApp01_IAMService01_Ins2_Provided_Instance</SHORT-NAME>
+                  <SERVICE-INTERFACE-DEPLOYMENT-REF DEST="SOMEIP-SERVICE-INTERFACE-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMService01_Dep</SERVICE-INTERFACE-DEPLOYMENT-REF>
+                  <SERVICE-INSTANCE-ID>2</SERVICE-INSTANCE-ID>
+                </PROVIDED-SOMEIP-SERVICE-INSTANCE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE>
+              <SHORT-NAME>Systest</SHORT-NAME>
+              <ELEMENTS>
+                <SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING UUID="e7ddf2a9-0b24-4dc6-a9bd-0abda6a72562">
+                  <SHORT-NAME>IAMApp01_Systest_ProvidedServiceInstance_toMachine</SHORT-NAME>
+                  <COMMUNICATION-CONNECTOR-REF DEST="ETHERNET-COMMUNICATION-CONNECTOR">/Machine/ECU1MachineDesign/ECU1CommunicationConnector</COMMUNICATION-CONNECTOR-REF>
+                  <SERVICE-INSTANCE-REFS>
+                    <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/Systest/IAMApp01_Systest_Provided_Instance</SERVICE-INSTANCE-REF>
+                  </SERVICE-INSTANCE-REFS>
+                  <UDP-PORT>31401</UDP-PORT>
+                </SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING>
+                <SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING UUID="8b46ee33-c8b2-4fe1-bc56-2bf3991ad981">
+                  <SHORT-NAME>IAMApp01_Systest_ProvidedServiceInstance_toPort</SHORT-NAME>
+                  <PORT-PROTOTYPE-IREF>
+                    <TARGET-PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/myproject/Application/SwComponent/IAMApp01/IAMApp01_Systest_PPort</TARGET-PORT-PROTOTYPE-REF>
+                  </PORT-PROTOTYPE-IREF>
+                  <PROCESS-REF DEST="PROCESS-DESIGN">/myproject/Application/ProcessDesign/IAMApp01_processDesign</PROCESS-REF>
+                  <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/myproject/Service/Systest/IAMApp01_Systest_Provided_Instance</SERVICE-INSTANCE-REF>
+                </SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING>
+                <PROVIDED-SOMEIP-SERVICE-INSTANCE UUID="2ef1a685-0ae7-429d-aeea-81b03343a8aa">
+                  <SHORT-NAME>IAMApp01_Systest_Provided_Instance</SHORT-NAME>
+                  <SERVICE-INTERFACE-DEPLOYMENT-REF DEST="SOMEIP-SERVICE-INTERFACE-DEPLOYMENT">/myproject/Service/Someip/Deployment/IAMApp01_Systest_Config_Dep</SERVICE-INTERFACE-DEPLOYMENT-REF>
+                  <SERVICE-INSTANCE-ID>1</SERVICE-INSTANCE-ID>
+                </PROVIDED-SOMEIP-SERVICE-INSTANCE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="c164b712-37c7-4b00-8977-f7035692f488">
+              <SHORT-NAME>Someip</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE UUID="00779dc5-f0f2-4d20-81dc-aa4ee6d409ea">
+                  <SHORT-NAME>Deployment</SHORT-NAME>
+                  <ELEMENTS>
+                    <SOMEIP-SERVICE-INTERFACE-DEPLOYMENT UUID="794f9403-6957-4214-9013-e374ee998b4c">
+                      <SHORT-NAME>IAMService01_Dep</SHORT-NAME>
+                      <SERVICE-INTERFACE-REF DEST="SERVICE-INTERFACE">/myproject/test/IAMService01</SERVICE-INTERFACE-REF>
+                      <SERVICE-INTERFACE-ID>1</SERVICE-INTERFACE-ID>
+                      <SERVICE-INTERFACE-VERSION>
+                        <MAJOR-VERSION>1</MAJOR-VERSION>
+                      </SERVICE-INTERFACE-VERSION>
+                    </SOMEIP-SERVICE-INTERFACE-DEPLOYMENT>
+                    <SOMEIP-SERVICE-INTERFACE-DEPLOYMENT UUID="A2B2C2D2-6957-4214-9013-E374EE998B4C">
+                      <SHORT-NAME>IAMApp01_Systest_Config_Dep</SHORT-NAME>
+                      <SERVICE-INTERFACE-REF DEST="SERVICE-INTERFACE">/myproject/test/IAMApp01_Systest_Config</SERVICE-INTERFACE-REF>
+                      <SERVICE-INTERFACE-ID>99</SERVICE-INTERFACE-ID>
+                      <SERVICE-INTERFACE-VERSION>
+                        <MAJOR-VERSION>1</MAJOR-VERSION>
+                      </SERVICE-INTERFACE-VERSION>
+                    </SOMEIP-SERVICE-INTERFACE-DEPLOYMENT>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="6f8134d7-ad31-4e00-b950-ee1224a59723">
+          <SHORT-NAME>System</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="45a30109-76ca-4eb1-9c5a-75e5a654d118">
+              <SHORT-NAME>ProcessToMachineMappingSet</SHORT-NAME>
+              <ELEMENTS>
+                <PROCESS-TO-MACHINE-MAPPING-SET UUID="659f571c-66ee-4d5e-ac14-0ffe46ededf1">
+                  <SHORT-NAME>IAMApp01procToMachineMappingSet</SHORT-NAME>
+                  <PROCESS-TO-MACHINE-MAPPINGS>
+                    <PROCESS-TO-MACHINE-MAPPING UUID="07d91b20-5d59-47d4-af83-1f888ad44125">
+                      <SHORT-NAME>procToMachineMapping_BROKEN</SHORT-NAME>
+                      <MACHINE-REF DEST="MACHINE">/Machine/ECU2Machine_Not_Defined</MACHINE-REF>
+                      <PROCESS-REF DEST="PROCESS">/myproject/Application/Process/DoesNotExist_process</PROCESS-REF>
+                    </PROCESS-TO-MACHINE-MAPPING>
+                  </PROCESS-TO-MACHINE-MAPPINGS>
+                </PROCESS-TO-MACHINE-MAPPING-SET>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="29abfbc6-de14-4aff-ae2a-1b88ce2263f8">
+              <SHORT-NAME>StartupConfigSet</SHORT-NAME>
+              <ELEMENTS>
+                <STARTUP-CONFIG-SET S="">
+                  <SHORT-NAME>IAMApp01_startup_set</SHORT-NAME>
+                  <STARTUP-CONFIGS>
+                    <STARTUP-CONFIG>
+                      <SHORT-NAME>startup_config</SHORT-NAME>
+                      <SCHEDULING-POLICY>SCHEDULING-POLICY-ROUND-ROBIN</SCHEDULING-POLICY>
+                      <SCHEDULING-PRIORITY>12</SCHEDULING-PRIORITY>
+                    </STARTUP-CONFIG>
+                  </STARTUP-CONFIGS>
+                </STARTUP-CONFIG-SET>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>test</SHORT-NAME>
+          <ELEMENTS>
+            <SERVICE-INTERFACE>
+              <SHORT-NAME>IAMService01</SHORT-NAME>
+              <MAJOR-VERSION>1</MAJOR-VERSION>
+            </SERVICE-INTERFACE>
+            <SERVICE-INTERFACE>
+              <SHORT-NAME>IAMApp01_Systest_Config</SHORT-NAME>
+              <MAJOR-VERSION>1</MAJOR-VERSION>
+            </SERVICE-INTERFACE>
+            </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+    
+    <AR-PACKAGE UUID="5583835f-b950-47c9-b9b7-78811cbcd2cc">
+      <SHORT-NAME>Machine</SHORT-NAME>
+      <ELEMENTS>
+        <MACHINE UUID="bc294844-5fb8-4922-bce5-d7b5a8e04627">
+          <SHORT-NAME>ECU1Machine</SHORT-NAME>
+          <FUNCTION-GROUPS>
+            <MODE-DECLARATION-GROUP-PROTOTYPE UUID="8294a807-d19d-44a3-b4d7-736bd9be5fdd">
+              <SHORT-NAME>MachineState</SHORT-NAME>
+              <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/Machine/ECU1Machine_MachineState_ModeDeclarationGroup</TYPE-TREF>
+            </MODE-DECLARATION-GROUP-PROTOTYPE>
+          </FUNCTION-GROUPS>
+          <MACHINE-DESIGN-REF DEST="MACHINE-DESIGN">/Machine/ECU1MachineDesign</MACHINE-DESIGN-REF>
+        </MACHINE>
+        <MACHINE-DESIGN UUID="bb68e7fb-29c3-42b1-a8f3-aa86f509a385">
+          <SHORT-NAME>ECU1MachineDesign</SHORT-NAME>
+          <COMMUNICATION-CONNECTORS>
+            <ETHERNET-COMMUNICATION-CONNECTOR UUID="d4a516d7-cec7-4d01-90d3-867670d825eb">
+              <SHORT-NAME>ECU1CommunicationConnector</SHORT-NAME>
+              <UNICAST-NETWORK-ENDPOINT-REF DEST="NETWORK-ENDPOINT">/Machine/EthCluster/EthPhysChannel1/ECU1NetworkEndpoint</UNICAST-NETWORK-ENDPOINT-REF>
+            </ETHERNET-COMMUNICATION-CONNECTOR>
+          </COMMUNICATION-CONNECTORS>
+        </MACHINE-DESIGN>
+        <MODE-DECLARATION-GROUP UUID="91be693b-7f50-4cd2-87e6-a15f652b2ac8">
+          <SHORT-NAME>ECU1Machine_MachineState_ModeDeclarationGroup</SHORT-NAME>
+          <MODE-DECLARATIONS>
+            <MODE-DECLARATION UUID="e87d829a-61e2-4448-94df-9ab3c5a17842">
+              <SHORT-NAME>Driving</SHORT-NAME>
+            </MODE-DECLARATION>
+            </MODE-DECLARATIONS>
+        </MODE-DECLARATION-GROUP>
+        <ETHERNET-CLUSTER UUID="4aeb70e8-4281-44f3-a7c2-f17aedb7c36b">
+          <SHORT-NAME>EthCluster</SHORT-NAME>
+          <ETHERNET-CLUSTER-VARIANTS>
+            <ETHERNET-CLUSTER-CONDITIONAL>
+              <PHYSICAL-CHANNELS>
+                <ETHERNET-PHYSICAL-CHANNEL UUID="5e4e437a-91b9-4b20-8451-caec3bd0dee8">
+                  <SHORT-NAME>EthPhysChannel1</SHORT-NAME>
+                  <NETWORK-ENDPOINTS>
+                    <NETWORK-ENDPOINT UUID="78aeb5ad-9ed8-4f9d-9907-119f01628c24">
+                      <SHORT-NAME>ECU1NetworkEndpoint</SHORT-NAME>
+                      <NETWORK-ENDPOINT-ADDRESSES>
+                        <IPV-4-CONFIGURATION>
+                          <IPV-4-ADDRESS>192.168.100.5</IPV-4-ADDRESS>
+                        </IPV-4-CONFIGURATION>
+                      </NETWORK-ENDPOINT-ADDRESSES>
+                    </NETWORK-ENDPOINT>
+                  </NETWORK-ENDPOINTS>
+                </ETHERNET-PHYSICAL-CHANNEL>
+              </PHYSICAL-CHANNELS>
+            </ETHERNET-CLUSTER-CONDITIONAL>
+          </ETHERNET-CLUSTER-VARIANTS>
+        </ETHERNET-CLUSTER>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

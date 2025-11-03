@@ -1,0 +1,5 @@
+# /a3ca_layer1/requirements.txt
+lxml
+pydantic
+pytest
+click  # (Sử dụng click thay vì argparse cho CLI gọn gàng hơn)
